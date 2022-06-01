@@ -1,5 +1,6 @@
 import { Hero } from "./hero";
 
+// Imported in heroes.components.ts
 export const HEROES: Hero[] = [
     {id: 12, name: 'Dr. Nice' },
     { id: 13, name: 'Bombasto' },

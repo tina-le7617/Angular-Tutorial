@@ -18,3 +18,29 @@
     <!-- ngModel 2-way data binding --> 
     <input id="name" [(ngModel)]="hero.name" placeholder="name">
 </div>
+
+<h2>My Heroes</h2>
+<ul class="heroes">
+    <!-- 
+        heroes: Holds the mock heroes list from HeroesComponent class, the mock heroes list
+        hero: Holds the current hero object for each iteration through the list
+    -->
+    <li *ngFor="let hero of heroes"> <!-- *ngFor is Angular's repeater directive -->
+        <!-- (click) is Event binding syntax  | class.some-css-class="some-condition" is class binding -->
+        <button type="button" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+            <span class="badge">{{ hero.id }}</span>
+            <span class="name">{{ hero.name }}</span>
+        </button>
+    </li>
+</ul>
+
+<!-- *ngIf directive instructs Angular to render the section only when selectedHero is actually defined-->
+<div *ngIf="selectedHero">
+    <h2>{{ selectedHero.name | uppercase }} Details</h2>
+    <div>id: {{ selectedHero.id }}</div>
+    <div>
+        <label for="hero-name">Hero name: </label>
+        <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+    </div>
+
+</div>

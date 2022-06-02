@@ -25,6 +25,7 @@ export class HeroesComponent implements OnInit {
   heroes = HEROES;
 
   // Assigns the clicked hero from template to the component's selectedHero
+  // ? means optional
   selectedHero?: Hero;
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
